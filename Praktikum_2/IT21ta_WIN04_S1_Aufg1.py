@@ -11,7 +11,7 @@ def ablf(x):
     return 5*x**4-20*x**3-90*x**2+220*x+29
 
 def stammF(x):
-    return 
+    return 1/6*x**6-x**5-7.5*x**4+110/3*x**3+29/2*x**2-105*x+0
 
 x = np.arange(-10, 11, 0.1)
 
@@ -20,6 +20,7 @@ plt.ylim([-1500,1500])
 
 plt.plot(x, f(x))
 plt.plot(x, ablf(x))
+plt.plot(x, stammF(x))
 
 plt.grid()
 
