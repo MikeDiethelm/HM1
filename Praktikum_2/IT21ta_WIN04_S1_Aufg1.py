@@ -15,8 +15,8 @@ def stammF(x):
 
 x = np.arange(-10, 11, 0.1)
 
-plt.xlim([-10, 10])
-plt.ylim([-1500,1500])
+#plt.xlim([-10, 10])
+plt.ylim([-1000,1000])
 
 plt.plot(x, f(x))
 plt.plot(x, ablf(x))
