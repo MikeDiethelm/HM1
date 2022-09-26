@@ -22,8 +22,10 @@ plt.plot(x, f(x))
 plt.plot(x, ablf(x))
 plt.plot(x, stammF(x))
 
+plt.xlabel("X-Werte")
+plt.ylabel("Y-Werte")
+plt.title("Funktionen und ihre Ableitungen / Stammfunktionen")
+plt.legend(["Function", "Ableitung", "Stammfunktion"])
 plt.grid()
 
 plt.show()
-    
-print("thahte")
