@@ -33,15 +33,48 @@ while x <= 500:
     resultetYValues = np.append(resultetYValues, calculatedResult)
     x = x*2
     
-plt.plot(resultetXValues, resultetYValues)
-plt.ylabel("Umfang")
-plt.xlabel("Anzahl Ecken")
-plt.show()
-print("Je grösser die Anzahl Ecken, desto näher an 2*Pi kommen wir.")
+#plt.plot(resultetXValues, resultetYValues)
+#plt.ylabel("Umfang")
+#plt.xlabel("Anzahl Ecken")
+#plt.show()
+#print("Je grösser die Anzahl Ecken, desto näher an 2*Pi kommen wir.")
 
 
 "----------------------------------------------------------------------"
 "-------------------------------- Aufgabe b ---------------------------"
 
+def innerRoot2(x):
+    return np.sqrt(1 - (bOuterRoot(x/2) **2 / 4))
 
 
+def overBruch(x):
+    return bOuterRoot(x/2) ** 2
+
+def underBruch(x):
+    return 2* (1 + innerRoot2(x))
+    
+def bOuterRoot(x):
+    if(x == 6):
+        return 1
+    else:
+        return np.sqrt(overBruch(x) / underBruch(x))
+
+startX = 6
+resultetXValues2 = np.array([])
+resultetYValues2 = np.array([])
+calculatedResult2 = 0
+
+while startX <= 500:
+    calculatedResult2 = startX * bOuterRoot(startX)
+    resultetXValues2 = np.append(resultetXValues2, startX)
+    resultetYValues2 = np.append(resultetYValues2, calculatedResult2)
+    startX = startX*2
+
+    
+plt.plot(resultetXValues, resultetYValues)    
+plt.plot(resultetXValues2, resultetYValues2)
+plt.ylabel("Umfang")
+plt.xlabel("Anzahl Ecken")
+plt.legend(["Aufgabe 3 a", "Aufgabe 3 b"])
+plt.show()
+#print("Je grösser die Anzahl Ecken, desto näher an 2*Pi kommen wir.")
