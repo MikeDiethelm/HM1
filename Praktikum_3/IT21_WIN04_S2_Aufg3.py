@@ -37,3 +37,11 @@ plt.plot(resultetXValues, resultetYValues)
 plt.ylabel("Umfang")
 plt.xlabel("Anzahl Ecken")
 plt.show()
+print("Je grösser die Anzahl Ecken, desto näher an 2*Pi kommen wir.")
+
+
+"----------------------------------------------------------------------"
+"-------------------------------- Aufgabe b ---------------------------"
+
+
+
