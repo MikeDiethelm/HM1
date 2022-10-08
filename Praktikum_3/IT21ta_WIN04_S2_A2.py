@@ -19,12 +19,14 @@ plt.xlabel("X-Werte")
 plt.ylabel("Y-Werte")
 plt.grid()
 plt.show()
+#Nicht die entsprechende Funktion da es mehrere Potenzen gibt und somit höhere Potenzen grösseren Wert haben.
+#Die Maschinengenauigkeit spielt daher eine grosse Rolle. 
 
 
 plt.figure(2)
 def f2(x):
     return (x-2)**7
-x = np.linspace(1.99, 2.01)
+x = np.linspace(1.99, 2.01,501)
 
 plt.plot(x, f2(x))
 plt.title("2a, f2")
@@ -32,6 +34,7 @@ plt.xlabel("X-Werte")
 plt.ylabel("Y-Werte")
 plt.grid()
 plt.show()
+#Gewohnte Funktion da es nur eine Potenz gibt. Die Maschinengenauigkeit spielt daher keine Rolle. 
 
 
 plt.figure(3)
@@ -47,6 +50,7 @@ plt.ylabel("Y-Werte")
 plt.plot(x, f3(x))
 plt.grid()
 plt.show()
+#Nein, ist nicht stabil. Die relativen Fehler werden immer grösser. Der Graph ist nicht gleich der Funktion dargestellt.
 
 
 plt.figure(4)
@@ -62,3 +66,4 @@ plt.ylabel("Y-Werte")
 plt.plot(x, f4(x))
 plt.grid()
 plt.show()
+#Grenzwert beträgt genau 0. Graph entspricht der Funktion, da es weniger Additionen und Subtraktionen hat.
