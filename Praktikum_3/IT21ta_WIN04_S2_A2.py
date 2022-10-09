@@ -19,6 +19,7 @@ plt.xlabel("X-Werte")
 plt.ylabel("Y-Werte")
 plt.grid()
 plt.show()
+#Antwort zu 2a zu der Funktion f1:
 #Nicht die entsprechende Funktion da es mehrere Potenzen gibt und somit höhere Potenzen grösseren Wert haben.
 #Kleinere Potenzen werden abgerundet und somit entstehen immer grössere Rundungsfehler.
 #Die Maschinengenauigkeit spielt daher eine grosse Rolle. 
@@ -35,7 +36,8 @@ plt.xlabel("X-Werte")
 plt.ylabel("Y-Werte")
 plt.grid()
 plt.show()
-#Gewohnte Funktion da es nur eine Potenz gibt. Die Maschinengenauigkeit spielt daher keine Rolle. 
+#Antwort zu 2a zu der Funktion f2:
+#Stellt die gewohnte Funktion dar, da es nur eine Potenz gibt. Die Maschinengenauigkeit spielt daher keine Rolle. 
 
 
 plt.figure(3)
@@ -51,6 +53,7 @@ plt.ylabel("Y-Werte")
 plt.plot(x, f3(x))
 plt.grid()
 plt.show()
+#Antwort zu 2b zu der Funktion f3:
 #Nein, ist nicht stabil. Die relativen Fehler werden immer grösser. Der Graph ist nicht gleich der Funktion dargestellt.
 
 
@@ -67,4 +70,5 @@ plt.ylabel("Y-Werte")
 plt.plot(x, f4(x))
 plt.grid()
 plt.show()
+#Antwort zu 2c zu der Funktion f4:
 #Grenzwert beträgt genau 0. Graph entspricht der Funktion, da es weniger Additionen und Subtraktionen hat.
