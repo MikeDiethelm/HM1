@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 plt.figure(1)
 def f1(x):
     return x**7-14*x**6+84*x**5-280*x**4+560*x**3-672*x**2+448*x-128
-x = np.linspace(1.99, 2.01)
+x = np.linspace(1.99, 2.01, 501)
 plt.plot(x, f1(x))
 plt.title("2a, f1")
 plt.xlabel("X-Werte")
@@ -20,6 +20,7 @@ plt.ylabel("Y-Werte")
 plt.grid()
 plt.show()
 #Nicht die entsprechende Funktion da es mehrere Potenzen gibt und somit höhere Potenzen grösseren Wert haben.
+#Kleinere Potenzen werden abgerundet und somit entstehen immer grössere Rundungsfehler.
 #Die Maschinengenauigkeit spielt daher eine grosse Rolle. 
 
 
