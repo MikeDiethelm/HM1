@@ -18,7 +18,7 @@ def innerRoot(x):
 
 def outerRoot(x):
     if(x == 6):
-        return 1
+        return 1.000
     else:
         return np.sqrt(2 - innerRoot(x))
 
@@ -31,7 +31,7 @@ def runAufgabeA():
     resultetYValues = np.array([])
     calculatedResult = 0
 
-    while x <= 2000:
+    while x <= 20000:
         calculatedResult = calculateCircumfence(x)
         resultetXValues = np.append(resultetXValues, x)
         resultetYValues = np.append(resultetYValues, calculatedResult)
@@ -44,7 +44,10 @@ def runAufgabeA():
     #plt.grid() 
     #plt.show() #show wird weiter unten gestarted
 
-antwortA = "Wie man sieht entsteht eine Funktion die sich an 2 * PI nähert, sieh aber nie erreicht, da Python keine irrationalen Zahlen zeigen kann sondern nur eine MaschinienZahl"
+#Antwort A: 
+#Wie man sieht entsteht eine Funktion die sich an 2 * PI nähert, 
+#sieh aber nie erreicht, da Python keine irrationalen Zahlen zeigen kann 
+#sondern nur eine MaschinenZahl
 
 "----------------------------------------------------------------------"
 "-------------------------------- Aufgabe b ---------------------------"
@@ -61,7 +64,7 @@ def underBruch(x):
     
 def bOuterRoot(x):
     if(x == 6):
-        return 1.0
+        return 1.000
     else:
         return np.sqrt(overBruch(x) / underBruch(x))
 
@@ -71,7 +74,7 @@ def runAufgabeB():
     resultetYValues2 = np.array([])
     calculatedResult2 = 0
     
-    while startX <= 2000:
+    while startX <= 20000:
         calculatedResult2 = startX * bOuterRoot(startX)
         resultetXValues2 = np.append(resultetXValues2, startX)
         resultetYValues2 = np.append(resultetYValues2, calculatedResult2)
@@ -86,7 +89,16 @@ def runAufgabeB():
     #plt.grid()
     #plt.show()
 
-antwortB = "Da die beiden Funktionen aufeinander liegen, bedeutet diese dass die Funktion die gleiche Werte erhält für die Anzahl Ecken und dabei auch nicht 2 * PI erreichen, da dies keine MaschinenZahl ist."
+#Antwort b:
+# Da die beiden Funktionen aufeinander liegen, 
+# bedeutet diese dass die Funktion die gleiche Werte erhält 
+# für die Anzahl Ecken und dabei auch nicht 2 * PI erreichen, 
+# da dies keine MaschinenZahl ist.
+# Auch wenn man die Anzahl Ecken weiter erhöht werden die Werte nicht genauer,
+# da man die Zahlen nicht besser Runden kann als eine Maschienenzahl in der Nähe.
+# Einzige Ausnahme wäre dass wir eine Zahl erreichen die fast in der Mitte von zwei
+# Maschinenzahlen liegt und es somit plötzlich das Resultat ändern kann, wenn man
+# näher an die zweite Maschinenzahl gelangt.
 
 "----------------------------------------------------------------------"
 "-------------------------------- Starter of a + b ---------------------------"
@@ -99,6 +111,3 @@ plt.xlabel("Anzahl Ecken")
 plt.legend(["Aufgabe 3 a", "Aufgabe 3 b"])
 plt.grid()
 plt.show()
-print(antwortA)
-print()
-print(antwortB)
