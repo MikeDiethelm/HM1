@@ -29,7 +29,7 @@ def g(x):
 print("Exercise 1")
 print(sekanten(f,-1.0, -1.2, 0.0001))
 print("Exercise 2")
-print(sekanten(g, 9, 8.944, 0.0001))  
+print(sekanten(g, 9, 8.981, 0.0001))  
 
 #Fazit: Das Sekantenverfahren ist gegenüber dem Newton-Verfahren einfacher darzustellen, 
         #da die Ableitung nicht mitgeliefert werden muss.  
