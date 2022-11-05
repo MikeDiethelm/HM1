@@ -15,7 +15,7 @@ def gaus(A,b):
     n = np.shape(A)[0]
     M = np.zeros((n,n+1))
     M[0:n,0:n]= np.copy(A)
-    M[0:n,n] = np.copy(b)
+    M[0:n,0:n] = np.copy(b)
     
     return (M,b)
 
@@ -37,7 +37,8 @@ A_four = np.array([[-1,2,3,2,5,4,3,-1],[3,4,2,1,0,2,3,8],[2,7,5,-1,2,1,3,5],[3,1
 b_four = np.array([[-11,103,53,-20,95,78,131,-26]])
 b_four = b_four.transpose()
 
-[A_triangle,detA,x] = gaus(A_four,b_four) 
-print(A_triangle)
+#[A_triangle,detA,x] = gaus(A_four,b_four) 
+print(gaus(A_four,b_four))
+print("numpy function")
 y = np.linalg.solve(A_four, b_four)
 print(y)
