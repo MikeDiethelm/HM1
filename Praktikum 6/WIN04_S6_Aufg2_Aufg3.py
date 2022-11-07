@@ -2,7 +2,7 @@
 """
 Created on Mon Nov  7 08:58:06 2022
 
-@author: adria
+@author: Adrian, Mike, Benssy
 """
 import numpy as np
 import math
