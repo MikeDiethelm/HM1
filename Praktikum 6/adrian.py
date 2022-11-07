@@ -8,6 +8,46 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
+def findXVector(A,b):
+    x_dim = A.shape[0]
+    y_dim = A.shape[1]
+    round = 0
+    while round < x_dim:
+        print(b[round][0])
+        print(A[round][round])
+        b[round][0] = b[round][0] / A[round][round]
+        round +=1
+    print(b)
+
+def jordan(A, b):
+    x_dim = A.shape[0]
+    y_dim = A.shape[1]
+    round = x_dim-1
+    while round >= 0:
+        nextLine = round-1
+        while nextLine >= 0:
+            print(nextLine)
+            print(round)
+            print("Matrix Value")
+            print(A[nextLine][round])
+            print(A[round][round])
+            divideBy = A[nextLine][round] / A[round][round]
+            print(divideBy)
+            b[nextLine][0] = b[nextLine][0] - divideBy * b[round][0]
+            for item in range(y_dim):
+                print("Item range")
+                print(A)
+                print(A[nextLine][item])
+                print(A[round][item])
+                A[nextLine][item] = A[nextLine][item] - divideBy * A[round][item]
+                print(A)
+            nextLine = nextLine -1
+        round = round -1
+    print("result jordan: ")
+    print(A)
+    print(b)
+    findXVector(A, b)
+
 def gaus(A, b):
     x_dim = A.shape[0]
     y_dim = A.shape[1]
@@ -45,7 +85,8 @@ def gaus(A, b):
     print("Result: ")
     print(A)
     print(b)
-    
+    jordan(A, b)
+ 
     
     
 def startMethod():
