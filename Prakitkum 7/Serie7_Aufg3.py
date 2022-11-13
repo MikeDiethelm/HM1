@@ -5,7 +5,10 @@ def findXVector(A,b):
     round = 0
     while round < A.shape[0]:
         #if(A[round][round] != 0):
-        b[round][0] = b[round][0] / A[round][round]
+        divideBy = 1
+        if(A[round][round]!=0):
+            divideBy = A[round][round]
+        b[round][0] = b[round][0] / divideBy
         round +=1
     return b
 
@@ -17,7 +20,9 @@ def jordan(A, b):
         nextLine = round-1
         while nextLine >= 0:
             #if(A[round][round]!= 0 ):
-            divideBy = A[nextLine][round] / A[round][round]
+            divideBy = 1
+            if(A[round][round]!=0):
+                divideBy = A[nextLine][round] / A[round][round]
             b[nextLine][0] = b[nextLine][0] - divideBy * b[round][0]
             for item in range(y_dim):
                 A[nextLine][item] = A[nextLine][item] - divideBy * A[round][item]
@@ -36,7 +41,14 @@ def gaus(A, b):
         nextLine = round +1
         while nextLine <= x_dim-1:
             #if(A[round][round]!= 0 ):
-            divideBy = A[nextLine][round] / A[round][round]
+            print(A[nextLine][round])
+            print(A[round][round])
+            divideBy = 1
+            if(A[round][round]!=0):
+                divideBy = A[nextLine][round] / A[round][round]
+            print(b[nextLine][0])
+            print(divideBy)
+            print(b[round][0])
             b[nextLine][0] = b[nextLine][0] - divideBy * b[round][0]
             
             for item in range(y_dim):
@@ -56,12 +68,12 @@ def showPlot(x):
     a = np.arange(-5.0, 20.0, 0.5)
     print('Wenn man x = 2')
     print(np.polyval(x, 2))
-    print(2, x.transpose())
+    print(polynom(2, x.transpose()))
     plt.plot(polynom(a, x.transpose()))
     #plt.plot(np.transpose(x), a)
     
 def startMethod():
-    Matrix_A = np.array([[13,1,1,1],[1,9,1,1], [1,1,2,1],[0,0,0,1]])
+    Matrix_A = np.array([[13**3,13**2,13,1],[9**3,9**2,9,1], [2**3,2**2,2,1],[0,0,0,1]])
     Vector_b = np.array([[152, 172, 104,150]])
     Vector_b = np.transpose(Vector_b)
     print("Start matrix: ")
