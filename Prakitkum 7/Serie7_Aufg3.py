@@ -62,29 +62,37 @@ def gaus(A, b):
     return jordan(A, b)
  
 def polynom(c, arr): 
-    return arr[0][0]*c**3+arr[0][1]*c**2+arr[0][2]*c+arr[0][3]
+    return arr[0][0]*c**3+arr[0][1]*c**2+arr[0][2]*c+150
     
 def showPlot(x):
-    a = np.arange(-5.0, 20.0, 0.5)
+    a = np.arange(0, 15.0, 1)
     print('Wenn man x = 2')
-    print(np.polyval(x, 2))
-    print(polynom(2, x.transpose()))
-    plt.plot(polynom(a, x.transpose()))
+    print(np.polyval(x,2))
+    print(polynom(2, x))
+    
+    plt.xlim(-5, 15)
+    plt.plot(a, x)
+    print('polyfit')
+    print(np.polyval(x, 3))
     #plt.plot(np.transpose(x), a)
     
 def startMethod():
-    Matrix_A = np.array([[13**3,13**2,13,1],[9**3,9**2,9,1], [2**3,2**2,2,1],[0,0,0,1]])
-    Vector_b = np.array([[152, 172, 104,150]])
+    Matrix_A = np.array([[0,0,0,1], [2**3,2**2,2,1], [9**3,9**2,9,1], [13**3,13**2,13, 1]])
+    Vector_b = np.array([[150, 104, 172, 152]])
     Vector_b = np.transpose(Vector_b)
     print("Start matrix: ")
     print(Matrix_A)
     print("start B: ")
     print(Vector_b)
-    foundX = gaus(Matrix_A, Vector_b)
-    print(foundX)
-    showPlot(foundX)
+    #foundX = gaus(Matrix_A, Vector_b)
+    #print(foundX)
+    y = np.linalg.solve(Matrix_A, Vector_b)
+    print(y)
+    showPlot(y.transpose())
     print("Calculated x Vector:")
-    print(foundX)
+    print(y)
+    
+    
 
 #Aufgabe 2 (startMethod):
 startMethod()
