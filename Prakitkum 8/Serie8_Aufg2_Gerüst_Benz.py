@@ -47,13 +47,24 @@ def Serie8_Aufg2(A):
     return(Q,R)
 #-----------------------------------
 #b)
-#to be done 
+
+def solution_with_b(Q,R,b):
+    n = np.shape(A)[0]
+    solution = np.zeros((n,1), dtype='float64')
+    left_side = Q.T @ b
+    for j in np.arange(0,n):
+        index = n-j-1
+        value = left_side[index][0]
+        print(value)
+        for p in range(j):
+            value = value - R[index][n-p-1]*solution[n-p-1][0]
+        value = value / R[index][index]
+        solution[index] = value
+    print(solution)
 
 A = np.array([[1,-2,3], [-5,4,1], [2,-1,3]])
 b = np.array([[1],[9],[5]])
 q,r = Serie8_Aufg2(A)
-print("Q:")
-print(q)
-print("R")
-print(r)
+solution_with_b(q,r,b)
+
 
