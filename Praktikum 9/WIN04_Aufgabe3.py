@@ -44,8 +44,8 @@ b = np.array([1,1,0])
 
 bGestoert = np.array([1,1, 168325*10**-11])
 
-
-
+max = np.zeros(1000)
+dObsA = np.zeros(1000)
 for i in range(1000):
     A = np.random.rand(100, 100)
     b = np.random.rand(100, 1)
@@ -55,9 +55,9 @@ for i in range(1000):
     dObs = berechneDxObs(berechneX(A,b),berechneX(A_tilde,b_tilde))
  
     max[i] = dMax
-    dObs[i] = dObs
+    dObsA[i] = dObs
 
-factor = max/dObs
+factor = max/dObsA
 
 # generate and center the axes
 fig = plt.figure()
@@ -65,7 +65,7 @@ ax = fig.add_subplot(1, 1, 1)
 # plot the functions
 plt.title("Excercise 9\n\n")
 plt.grid()
-plt.plot(dObs, max, '.b', label="factor = dx_max/dx_obs")
+plt.plot(dObsA, max, '.b', label="factor = dx_max/dx_obs")
 plt.semilogy()
 plt.legend()
 plt.show(block=False)
