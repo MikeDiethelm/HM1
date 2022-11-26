@@ -5,7 +5,6 @@ Author:Adrian Moser, Mike Diethelm, Benssy Kolattukudy
 """
 from math import nan
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def berechneX(A, b):
@@ -36,7 +35,7 @@ def berechneDxMax(A, Agestoert, b, bGestoert):
         return leftMultiplication(A, Agestoert) * rightMultiplication(A, Agestoert, b, bGestoert)
 
 def berechneDxObs(x, xGestoert):
-    return conditionalBruch(x,xGestoert)
+    return (getNorm(x)-getNorm(xGestoert))/getNorm(x)
 
 #Aufgabe 2:
 # Definiere die Matrix A und den Vektor b, sowie die gestörte Matrix A und der gestörte Vektor b.
@@ -45,9 +44,9 @@ A = np.array([[1,0,2], [0,1,0], [10**-4, 0, 10**-4]])
 
 Agestoert = A + 10**-7
 
-b = np.array([[1,1,0]])
+b = np.array([1,1,0])
 
-bGestoert = np.array([[1,1, 168325*10**-11]])
+bGestoert = np.array([1,1, 168325*10**-11])
 
 # Aufgabenstellung printen 
 
