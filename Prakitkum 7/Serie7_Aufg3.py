@@ -80,6 +80,7 @@ def startMethod():
     #foundX = gaus(Matrix_A, Vector_b)
     #print(foundX)
     y = np.linalg.solve(Matrix_A, Vector_b)
+    print ("y:")
     print(y)
     showPlot(y.transpose())
     print("Calculated x Vector:")
