@@ -14,7 +14,7 @@ def getCond(M):
     return np.linalg.cond(M, np.inf)
 
 def conditionalBruch(A, Agestoert):
-    return (getCond(A)-getCond(Agestoert))/getCond(A)
+    return (getNorm(Agestoert)-getNorm(A))/getNorm(A)
 
 def getNorm(c):
     return np.linalg.norm(c, np.inf)
@@ -23,14 +23,15 @@ def normBruch(b, bGestoert):
     return (getNorm(b)-getNorm(bGestoert))/getNorm(b)
 
 def leftMultiplication(A, Agestoert):
-    return getCond(A) / (1- (getCond(Agestoert) * conditionalBruch(A, Agestoert)))
+    return getCond(A) / (1- (getCond(A) * conditionalBruch(A, Agestoert)))
 
 def rightMultiplication(A, Agestoert, b, bGestoert):
-    return conditionalBruch(A, Agestoert) + normBruch(b, bGestoert)
+    return conditionalBruch(A, Agestoert) + conditionalBruch(b, bGestoert)
 
 def berechneDxMax(A, Agestoert, b, bGestoert):
-    if(getCond(A) * conditionalBruch(A, Agestoert) < 1):
-        return nan
+    if(getCond(A) * conditionalBruch(A, Agestoert) == 1):
+        print("Is nan")
+        return float('nan')
     else:
         return leftMultiplication(A, Agestoert) * rightMultiplication(A, Agestoert, b, bGestoert)
 
