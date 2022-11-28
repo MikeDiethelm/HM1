@@ -10,13 +10,13 @@ def getCond(M):
     return np.linalg.cond(M, np.inf)
 
 def conditionalBruch(A, Agestoert):
-    return (getNorm(Agestoert)-getNorm(A))/getNorm(A)
+    return (getNorm(Agestoert,A))/getNorm(A,0)
 
-def getNorm(c):
-    return np.linalg.norm(c, np.inf)
+def getNorm(cGestört,cNormal):
+    return np.linalg.norm(cGestört-cNormal, np.inf)
 
 def normBruch(b, bGestoert):
-    return (getNorm(b)-getNorm(bGestoert))/getNorm(b)
+    return (getNorm(bGestoert,b))/getNorm(b)
 
 def leftMultiplication(A, Agestoert):
     return getCond(A) / (1- (getCond(A) * conditionalBruch(A, Agestoert)))
@@ -32,7 +32,7 @@ def berechneDxMax(A, Agestoert, b, bGestoert):
         return leftMultiplication(A, Agestoert) * rightMultiplication(A, Agestoert, b, bGestoert)
 
 def berechneDxObs(x, xGestoert):
-    return (getNorm(x)-getNorm(xGestoert))/getNorm(x)
+    return (getNorm(xGestoert,x))/getNorm(x,0)
 
 
 max = np.zeros(1000)
