@@ -18,7 +18,7 @@ print("x")
 print(np.linalg.solve(A, b))
 print("A inverse")
 print(A_inv)
-print('cond norm:',cond_A)
+print('cond norm A:',cond_A)
 print('x_strich',np.linalg.solve(A, b_strich))
 
 #exercise c)

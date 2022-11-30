@@ -14,13 +14,16 @@ def getCond(M):
     return np.linalg.cond(M, np.inf)
 
 def conditionalBruch(A, Agestoert):
-    return (getNorm(Agestoert)-getNorm(A))/getNorm(A)
+    return (getNorm2(Agestoert,A)/getNorm(A))
 
 def getNorm(c):
     return np.linalg.norm(c, np.inf)
 
+def getNorm2(cGestört,cNormal):
+    return np.linalg.norm(cGestört-cNormal, np.inf)
+
 def normBruch(b, bGestoert):
-    return (getNorm(b)-getNorm(bGestoert))/getNorm(b)
+    return (getNorm2(bGestoert,b)/getNorm(b))
 
 def leftMultiplication(A, Agestoert):
     return getCond(A) / (1- (getCond(A) * conditionalBruch(A, Agestoert)))
@@ -36,7 +39,7 @@ def berechneDxMax(A, Agestoert, b, bGestoert):
         return leftMultiplication(A, Agestoert) * rightMultiplication(A, Agestoert, b, bGestoert)
 
 def berechneDxObs(x, xGestoert):
-    return (getNorm(x)-getNorm(xGestoert))/getNorm(x)
+    return (getNorm2(xGestoert,x)/getNorm(x))
 
 #Aufgabe 2:
 # Definiere die Matrix A und den Vektor b, sowie die gestörte Matrix A und der gestörte Vektor b.
@@ -47,7 +50,7 @@ Agestoert = A + 10**-7
 
 b = np.array([1,1,0])
 
-bGestoert = np.array([1,1, 168325*10**-11])
+bGestoert = np.array([1,1, 1.667*10**-7])
 
 # Aufgabenstellung printen 
 
@@ -63,20 +66,22 @@ print(bGestoert)
 print("Berechneter x Wert")
 
 x = berechneX(A, b)
-xGestoert = berechneX(Agestoert, bGestoert)
+xGestoert = berechneX(A, bGestoert)
 
-print(x)
+print('x',x)
 print("und der berechnete gestörte X Wert")
 print(xGestoert)
 
 print("Zuletzt noch dMax:")
 
-d = berechneDxMax(A, Agestoert, b, bGestoert)
+d = berechneDxMax(A, Agestoert, b,bGestoert)
 
 if(d == nan):
     print("Leiter sind die Zahlen nicht zum rechnen geeignet")
 else:
     print(d)
 
-print("und der relative Fehler")
-print(berechneDxObs(x, xGestoert))
+print("und der relative Fehler x")
+print(berechneDxObs(x,xGestoert))
+
+
