@@ -13,15 +13,9 @@ def berechneZeichen(A):
     n = 1 #Zählt die Anzahl der Berechnungen
     return L, D, R, n
 
-def berechneAPriori(A, x, xn, tol):
+def berechneAPriori(B,x0,x1,tol):
     
-    bruchunten = np.linalg.norm((xn-x),np.inf)*(1 - np.linalg.norm(A,np.inf))
-    gesamtbruch= tol / bruchunten
-    
-    grossBruchoben = np.log(gesamtbruch)
-    
-    grossBruchunten = np.log(np.linalg.norm(A, np.inf))
-    return grossBruchoben / grossBruchunten
+    return np.log((tol / np.linalg.norm((x1-x0),np.inf)*(1 - np.linalg.norm(B,np.inf)))) / np.log(np.linalg.norm(B,np.inf))
 
 def berechneAPosteriori(A, xn, xn_minuseins):
     bruchoben = np.linalg.norm(A, np.inf)
@@ -40,10 +34,11 @@ def startPoint(A, b, x0, tol, opt):
     
     optionBekannt = True
     L, D, R, n = berechneZeichen(A)
+    print(L, D, R, n)
     
     if(opt == "J"):
         B = -np.linalg.inv(D) @ (L+R)
-        c = np.linalg.inv(D) @ b
+        c = np.linalg.inv(D) @ b #-np.linalg.inv(D) @ (L + R) @ x0 + np.linalg.inv(D) @ b 
         ersteIteration = jacobiIteration(B, c, x0)
     elif(opt == "GS"):
         B = -np.linalg.inv(D+L) @ R
@@ -75,3 +70,9 @@ def startPoint(A, b, x0, tol, opt):
         n += 1
     
     return (xn, n, n2)
+
+A = np.array([[8,5,2],[5,9,1],[4,2,7]])
+b = np.array([[19],[5],[34]])
+x = np.array([[1],[-1],[3]])
+
+print(startPoint(A, b, x, 0.0001, "GS"))
