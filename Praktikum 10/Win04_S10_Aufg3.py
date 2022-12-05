@@ -31,9 +31,6 @@ def gaussSeidelIteration(A, c, xn):
     return  A @ xn + c
     
 def startPoint(A, b, x0, tol, opt):
-    A = A.astype("float64")
-    b = b.astype("float64")
-    x0 = x0.astype("float64")
     optionBekannt = True
     L, D, R, n = berechneZeichen(A)
     print(L, D, R, n)
@@ -72,6 +69,16 @@ def startPoint(A, b, x0, tol, opt):
         n = n+1
     
     return (xn, n, n2)
+
+
+# Teste mit Aufgabe 1
+A = np.array([[8,5,2],[5,9,1],[4,2,7]])
+b = np.array([[19],[5],[34]])
+x = np.array([[1],[-1],[3]])
+
+print(startPoint(A, b, x, 0.0001, "J"))
+
+# Teste mit Aufgabe 2
 
 A = np.array([[8,5,2],[5,9,1],[4,2,7]])
 b = np.array([[19],[5],[34]])
