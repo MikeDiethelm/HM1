@@ -25,13 +25,15 @@ def berechneAPosteriori(A, xn, xn_minuseins):
     return (bruchoben / bruchunten) * rechtseitig
 
 def jacobiIteration(A, c, xn):
-    return A@xn+c
+    return A @ xn + c
 
 def gaussSeidelIteration(A, c, xn):
     return  A @ xn + c
     
 def startPoint(A, b, x0, tol, opt):
-    
+    A = A.astype("float64")
+    b = b.astype("float64")
+    x0 = x0.astype("float64")
     optionBekannt = True
     L, D, R, n = berechneZeichen(A)
     print(L, D, R, n)
@@ -67,7 +69,7 @@ def startPoint(A, b, x0, tol, opt):
             #B = -np.linalg.inv(D+L) @ R
             #c =  np.linalg.inv(D+L) @ b
             xn = gaussSeidelIteration(B, c, xn)
-        n += 1
+        n = n+1
     
     return (xn, n, n2)
 
