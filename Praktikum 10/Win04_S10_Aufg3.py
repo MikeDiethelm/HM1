@@ -5,7 +5,6 @@ Created on Sat Nov 30 19:13:48 2022
 @author: Adrian, Benssy, Mike
 """
 import numpy as np
-from Win04_S10_Jacobi import jacobiVerfahren
 
 def berechneZeichen(A):
     L = np.tril(A, k=-1)
