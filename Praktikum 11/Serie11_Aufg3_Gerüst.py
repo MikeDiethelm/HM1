@@ -35,9 +35,7 @@ def mandelbrot(x_min, x_max, y_min, y_max):
     plt.imshow(B,extent=[x_min,x_max,y_min,y_max],origin='lower',interpolation='bilinear')   #display image
 
 
-x_min = -2                   #minimim value of x-interval
-x_max = 0.7                   #maximum value of x-interval
-y_min = -1.4                   #minimim vale of y-interval
-y_max = 1.4                    #minimim vale of y-interval
-mandelbrot(x_min, x_max, y_min, y_max)
- 
+mandelbrot(-2.1,0.7,-1.4,1.4)
+mandelbrot(-0.4,0.1,-1.15,-0.65)
+mandelbrot(-0.2,-0.1,-1.1,-1.0)
+mandelbrot(-0.17,-0.15,-1.045,-1.025)
