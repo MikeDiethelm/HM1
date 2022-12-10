@@ -30,12 +30,24 @@ def mandelbrot(x_min, x_max, y_min, y_max):
       C[expl] = 0                        #removing from plane
       B[expl] = n                 #saving color value n
     
-    plt.figure(1)
     B = B/np.max(np.max(B))           #deviding by max value for correct color
-    plt.imshow(B,extent=[x_min,x_max,y_min,y_max],origin='lower',interpolation='bilinear')   #display image
+    return B, x_min,x_max,y_min,y_max
 
 
-mandelbrot(-2.1,0.7,-1.4,1.4)
-mandelbrot(-0.4,0.1,-1.15,-0.65)
-mandelbrot(-0.2,-0.1,-1.1,-1.0)
-mandelbrot(-0.17,-0.15,-1.045,-1.025)
+print("Mandelbrot 1")
+B1, x_min1,x_max1,y_min1,y_max1 = mandelbrot(-2.1,0.7,-1.4,1.4)
+plt.figure(1)
+plt.imshow(B1,extent=[x_min1,x_max1,y_min1,y_max1],origin='lower',interpolation='bilinear')   #display image
+print("Mandelbrot 2")
+B2, x_min2,x_max2,y_min2,y_max2 = mandelbrot(-0.4,0.1,-1.15,-0.65)
+plt.figure(2)
+plt.imshow(B2,extent=[x_min2,x_max2,y_min2,y_max2],origin='lower',interpolation='bilinear')   #display image
+print("Mandelbrot 3")
+B3, x_min3,x_max3,y_min3,y_max3 = mandelbrot(-0.2,-0.1,-1.1,-1.0)
+plt.figure(3)
+plt.imshow(B3,extent=[x_min3,x_max3,y_min3,y_max3],origin='lower',interpolation='bilinear')   #display image
+print("Mandelbrot 4")
+B4, x_min4,x_max4,y_min4,y_max4 = mandelbrot(-0.17,-0.15,-1.045,-1.025)
+plt.figure(4)
+plt.imshow(B4,extent=[x_min4,x_max4,y_min4,y_max4],origin='lower',interpolation='bilinear')   #display image
+
